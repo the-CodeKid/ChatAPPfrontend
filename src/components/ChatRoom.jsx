@@ -10,7 +10,7 @@ const ChatRoom = () =>{
     const [room, setRoom] = useState(defaultRoom);
     const [pendingRoom, setPendingRoom] = useState(room)
 
-    const WS_URL = `ws://localhost:8000/ws/chat/${room}/`
+    const WS_URL = import.meta.env.VITE_WS_URL.replace('roomname', room);
     const { messages, sendMessage } = useChatSocket(WS_URL);
     
     // const handleSendMessage = (msg)=>{
