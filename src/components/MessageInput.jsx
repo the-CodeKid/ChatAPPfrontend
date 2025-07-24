@@ -7,6 +7,8 @@ const MessageInput = ({onSend}) => {
     const [username, setUsername] = useState("");
     const [file, setFile] = useState(null);
 
+    const uploadUrl = import.meta.env.VITE_API_BASE + "upload/"
+
     const handleSumbit = async (e) => {
         e.preventDefault();
         if(!input.trim() && !file){
@@ -20,7 +22,7 @@ const MessageInput = ({onSend}) => {
         if(file){
             const formData = new FormData();
             formData.append("file",file);
-            const res = await fetch("http://localhost:8000/api/upload/",{
+            const res = await fetch(uploadUrl,{
                 method: "POST",
                 body: formData,
             });
