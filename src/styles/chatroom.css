@@ -5,7 +5,8 @@ body, html{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #232859
+    color: #232859;
+    overflow-x: hidden;
 }
 
 .chat-room{
@@ -59,13 +60,17 @@ body, html{
 
 .message-input{
     display: flex;
-    gap: 8px;
+    gap: 9px;
     align-items: center;
     padding-top: 0.7em;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 .message-input input[type="text"]{
-    flex: 1;
+    flex: 1 1 120px;
+    min-width: 0;
     padding: 12px;
     border-radius: 10px;
     border: 1.2px solid #d6def8;
@@ -82,13 +87,21 @@ body, html{
 
 .message-input input[type="file"]{
     flex: none;
+    width: 130px;
+    max-width: 40%;
     background: #e5e8fb;
     border-radius: 8px;
-    padding: 8px;
+    padding: 7px 5px;
     font-size: .98em;
 }
 
 .message-input button {
+    flex: none;
+    padding: 11px 22px;
+    max-width: 120px;
+    min-width: 75px;
+    margin-left: 0;
+    margin-right: 0;
     background: linear-gradient(90deg, #5299db 0%, #346aff 100%);
     border: none;
     margin: 0;
@@ -210,11 +223,24 @@ input{
 }
 
 @media (max-width:700px) {
-    .auth-container{
+    .message-input {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .message-input input{
+        width: 94%;
+        max-width: none;
+        margin-bottom: 6px;
+    }
+    .message-input button {
+        width: 94%;
+        margin-top: 7px;
+    }
+    .auth-container { 
         padding: 1em 0.5em;
         max-width: 97vw;
     }
-    .chat-room{
+    .chat-room {
         padding: 1.2em .3em .7em .3em;
         max-width: 98vw;
     }
