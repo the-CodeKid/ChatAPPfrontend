@@ -43,6 +43,8 @@ body, html{
     line-height: 1.55;
     word-break: break-word;
     max-width: 85%;
+    margin-left: 14px;
+    margin-right: 14px;
 }
 
 .message strong{
