@@ -56,7 +56,8 @@ export default function SignUp() {
                 <br />
                 <input 
                 name="password"
-                value= {form.password}
+                type="password"
+                value={form.password}
                 onChange={handleChange}
                 placeholder="Password"
                 required

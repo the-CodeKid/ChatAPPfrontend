@@ -169,8 +169,16 @@ input{
     border-radius: 8px;
     border: 1px solid #e1e1e5;
     background: #f8f9fc;
+    color: #232859;
     font-size: 1.03em;
     transition: border 0.2s;
+}
+
+.auth-form input:focus {
+    border: 1.5px solid #285eb8;
+    background: #f8f9fc;
+    color: #232859;
+    outline: none;
 }
 
 .auth-form button {

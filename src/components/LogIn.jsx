@@ -51,7 +51,8 @@ export default function LogIn({ onLogin }){
                 <br />
                 <input
                     name="password"
-                    value={creds.password}
+                    type="password"
+                    value={form.password}
                     onChange={handleChange}
                     placeholder="Password"
                     required
