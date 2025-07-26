@@ -37,35 +37,31 @@ export default function LogIn({ onLogin }){
     };
 
     return (
-        <form 
-            onSubmit={handleSubmit}
-            style={{
-            maxWidth:400, 
-            margin:"2em auto", 
-            padding: 24, 
-            borderRadius: 8}}
-        >
+        <div className="auth-container">
             <h2>Log In</h2>
-            <input
-                name="username"
-                value={creds.username}
-                onChange={handleChange}
-                placeholder="Username"
-                required
-            />
             <br />
-            <input
-                name="password"
-                value={creds.password}
-                onChange={handleChange}
-                placeholder="Password"
-                required
-            />
-            <br />
-            <button type="submit">Log In</button>
-            <div style={{color:msg.startsWith("Login Successful") ? "green" : "red"}}>
-                New? <Link to="/signup">Create account</Link>
-            </div>
-        </form>
+            <form className="auth-form" onSubmit={handleSubmit}>
+                <input
+                    name="username"
+                    value={creds.username}
+                    onChange={handleChange}
+                    placeholder="Username"
+                    required
+                />
+                <br />
+                <input
+                    name="password"
+                    value={creds.password}
+                    onChange={handleChange}
+                    placeholder="Password"
+                    required
+                />
+                <br />
+                <button type="submit" disabled={loading}>Log In</button>
+                <div className="auth-message" style={{color:msg.startsWith("Login Successful") ? "green" : "red"}}></div>
+                <div className="auth-footer">Create an account? <Link to="/signup">Sign up</Link></div>
+                
+            </form>
+        </div>
     )
 }

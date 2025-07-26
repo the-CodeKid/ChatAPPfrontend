@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "../styles/chatroom.css"
 
 export default function SignUp() {
     const[form, setForm] = useState({username:'', email:'', password:''});
@@ -34,42 +35,38 @@ export default function SignUp() {
     };
 
     return(
-        <form onSubmit={handleSubmit} style={{
-            maxWidth:400, 
-            margin:"2em auto",
-            padding:24, 
-            borderRadius:8
-
-        }}>
+        <div className="auth-container">
             <h2>Sign Up</h2>
-            <input 
-            name="username"
-            value= {form.username}
-            onChange={handleChange}
-            placeholder="Username"
-            required
-            />
             <br />
-            <input 
-            name="email"
-            value= {form.email}
-            onChange={handleChange}
-            placeholder="Email (optional)"
-            />
-            <br />
-            <input 
-            name="password"
-            value= {form.password}
-            onChange={handleChange}
-            placeholder="Password"
-            required
-            />
-            <br />
-            <button type="submit">Sign Up</button>
-            <div style={{color:msg.startsWith("Login Successful") ? "green" : "red"}}>
-                Already have an account? <Link to="/login">Log In</Link>
-            </div>
+            <form className="auth-form" onSubmit={handleSubmit} autoComplete="off">
+                <input className="input-username"
+                name="username"
+                value= {form.username}
+                onChange={handleChange}
+                placeholder="Username"
+                required
+                />
+                <br />
+                <input 
+                name="email"
+                value= {form.email}
+                onChange={handleChange}
+                placeholder="Email (optional)"
+                />
+                <br />
+                <input 
+                name="password"
+                value= {form.password}
+                onChange={handleChange}
+                placeholder="Password"
+                required
+                />
+                <br />
+                <button type="submit" disabled={loading}>Sign Up</button>
+                <div className="auth-message" style={{color:msg.startsWith("Login Successful") ? "green" : "red"}}></div>
+                <div className="auth-footer">Already have an account? <Link to="/login">Log In</Link></div>
 
-        </form>
+            </form>
+        </div>
     );
 }
