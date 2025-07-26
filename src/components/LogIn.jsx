@@ -52,7 +52,7 @@ export default function LogIn({ onLogin }){
                 <input
                     name="password"
                     type="password"
-                    value={form.password}
+                    value={creds.password}
                     onChange={handleChange}
                     placeholder="Password"
                     required
